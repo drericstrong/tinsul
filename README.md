@@ -1,4 +1,10 @@
 # TInsul
+
+![TInsul](https://github.com/drericstrong/tinsul/blob/master/images/tinsul_small.png)
+
+[![PyPI version](https://badge.fury.io/py/tinsul.svg)](https://badge.fury.io/py/tinsul)
+[![Documentation Status](https://readthedocs.org/projects/tinsul/badge/?version=latest)](http://tinsul.readthedocs.io/en/latest/?badge=latest)
+
 TInsul (Transformer INSULation simulator) is a Python module to simulate condition-monitoring data for the paper insulation of large-scale transformers. It might be used to test new prognostics algorithms, as a teaching aid for those new to the field of condition-monitoring, or to compare the results from simulated data to real-world applications.
 
 TInsul requires the following primary inputs:
