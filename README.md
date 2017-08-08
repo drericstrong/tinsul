@@ -30,11 +30,11 @@ The main function within TInsul is called "tinsul_sim". It requires only two inp
 
 For example:
 
->>> temps = [[-2, 1, 6], [-1, 3, 8], [3, 7, 13], [8, 13, 19], [14, 18, 24], [19, 24, 29], [22, 28, 31], [21, 27, 30], [17, 22, 26], [10, 15, 20], [5, 10, 14], [0, 4, 8]]
+> temps = [[-2, 1, 6], [-1, 3, 8], [3, 7, 13], [8, 13, 19], [14, 18, 24], [19, 24, 29], [22, 28, 31], [21, 27, 30], [17, 22, 26], [10, 15, 20], [5, 10, 14], [0, 4, 8]]
 
->>> start_month = 1
+> start_month = 1
 
->>> co, co2 = tinsul_sim(temps, start_month)
+> co, co2 = tinsul_sim(temps, start_month)
 
 The output of the tinsul_sim function will be a tuple containing the carbon monoxide and carbon dioxide accumulation per week (co, co2 above). The size of the array can be used to infer the failure time, in weeks.
 
