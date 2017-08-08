@@ -10,16 +10,19 @@ TInsul (Transformer INSULation simulator) is a Python module to simulate conditi
 TInsul requires the following primary inputs:
 
 * Average temperatures per month
-* Starting month (to begin the simulation)
-* Overload ratio
+* Starting month (optional)
+* Overload ratio (optional)
 
-and will provide these output values:
+and will provide these output values (per week):
 
-* CO generation per week
-* CO2 generation per week
+* CO generation
+* CO2 generation
+* Furan
+* Furfural
+* Water Content
 * Failure time (inferred from the size of the array)
 
-*Several simplifying assumptions were made when developing TInsul, and empirical data from an academic paper was used to estimate the rate of CO+CO2 accumulation per week. While the simulated data from TInsul will be relatively realistic, its real-world applicability should be treated with some caution.* 
+*Several simplifying assumptions were made when developing TInsul, and empirical data from an academic paper was used to estimate the rate of dissolved gas accumulation per week. While the simulated data from TInsul will be relatively realistic, its real-world applicability should be treated with some caution.* 
 
 ## Getting Started
 TInsul can be installed using pip:
@@ -32,7 +35,7 @@ TInsul can be installed using pip:
 Current documentation can be found [here](https://tinsul.readthedocs.io/en/latest/).
 
 ## Examples
-The main function within TInsul is called "tinsul_sim". It requires only two inputs, although a number of other optional inputs can also be supplied. "temps" is a 12x3 matrix, with the rows being months of the year (starting with January), and the columns being the low, average, and high temperatures per month, respectively. "start_month" refers to the month at which to begin the simulation, with 1 being January, 2 being February, etc.
+The main function within TInsul is called "tinsul_sim". It requires only one input (an array of temperatures), although a number of other optional inputs can also be supplied. "temps" is a 12x3 matrix, with the rows being months of the year (starting with January), and the columns being the low, average, and high temperatures per month, respectively. Alternatively, supplying "default" to the temps parameter will use the average monthly temperatures for Washington DC. "start_month" refers to the month at which to begin the simulation, with 1 being January, 2 being February, etc.
 
 For example:
 
@@ -40,9 +43,9 @@ For example:
 
 > start_month = 1
 
-> co, co2 = tinsul_sim(temps, start_month)
+> df = tinsul_sim(temps, start_month)
 
-The output of the tinsul_sim function will be a tuple containing the carbon monoxide and carbon dioxide accumulation per week (co, co2 above). The size of the array can be used to infer the failure time, in weeks.
+The output of the tinsul_sim function will be a DataFrame containing the condition indicators for paper insulation failure (CO, CO2, Furan, Furfural, Water Content). The size of the array can be used to infer the failure time, in weeks.
 
 ## Technical Basis
 ![Overview](/images/TransformerSimulationOverview.png)
